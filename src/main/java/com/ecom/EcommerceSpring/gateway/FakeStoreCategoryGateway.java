@@ -28,7 +28,7 @@ public class FakeStoreCategoryGateway implements ICategoryGateway {
                 .map(category -> CategoryDTO.builder()
                 .name(category).build())
                 .toList();
-        //1:56:21
+
 
     }
 }

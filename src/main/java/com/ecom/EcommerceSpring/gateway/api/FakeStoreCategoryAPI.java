@@ -9,7 +9,7 @@ import java.io.IOException;
 @Component
 public interface FakeStoreCategoryAPI {
 
-    @GET("/products/category")
+    @GET("products/category")
     Call<FakeStoreCategoryResponseDTO> getAllFakeCategories() throws IOException;
 
 
