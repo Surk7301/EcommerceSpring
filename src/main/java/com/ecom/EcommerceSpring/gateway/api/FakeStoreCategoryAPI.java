@@ -13,4 +13,6 @@ public interface FakeStoreCategoryAPI {
     Call<FakeStoreCategoryResponseDTO> getAllFakeCategories() throws IOException;
 
 
+
+
 }
