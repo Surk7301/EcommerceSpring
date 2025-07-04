@@ -8,6 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class ProductDTO {
+
+    //Created with pojo creater automatic
     private String image;
     private String color;
     private int price;
