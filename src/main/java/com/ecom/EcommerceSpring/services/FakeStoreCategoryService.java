@@ -11,11 +11,11 @@ import java.util.List;
 @Service("categoryService")
 public class FakeStoreCategoryService implements ICategoryService {
 
+
     private final ICategoryGateway categoryGateway;
 
-
-
-    public FakeStoreCategoryService( ICategoryGateway categoryGateway){
+    //Qualifier is inside becoz we are using constructor injection
+    public FakeStoreCategoryService( @Qualifier("fakeStoreRestTemplateGateway") ICategoryGateway categoryGateway){
         this.categoryGateway = categoryGateway;
 
     }

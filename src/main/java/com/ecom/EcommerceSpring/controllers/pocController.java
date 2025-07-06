@@ -5,6 +5,7 @@ import com.ecom.EcommerceSpring.dto.ProductOfCategoryDTO;
 import com.ecom.EcommerceSpring.services.IProductOfCategoryService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,9 +17,10 @@ public class pocController {
         this.productOfCategoryService = productOfCategoryService;
     }
 
-    @GetMapping("?{type}")
-    public List<ProductOfCategoryDTO> getProductOfCategory(){
-        ProductOfCategoryDTO result = (ProductOfCategoryDTO) this.productOfCategoryService.getProductOfCategory();
+    @GetMapping()
+    public List<ProductOfCategoryDTO> getProductOfCategory(@RequestParam("type") long type) throws Exception{
+        ProductOfCategoryDTO result = (ProductOfCategoryDTO) this.productOfCategoryService.getProductOfCategory(type);
 
+        return List.of();
     }
 }

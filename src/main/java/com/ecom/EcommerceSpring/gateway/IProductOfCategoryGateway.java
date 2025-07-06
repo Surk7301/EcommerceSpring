@@ -5,5 +5,5 @@ import com.ecom.EcommerceSpring.dto.ProductOfCategoryDTO;
 import java.util.List;
 
 public interface IProductOfCategoryGateway {
-    List<ProductOfCategoryDTO> getProductOfCategory();
+     List<ProductOfCategoryDTO> getProductOfCategory(long type) throws Exception;
 }

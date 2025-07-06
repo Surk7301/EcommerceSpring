@@ -1,5 +1,12 @@
 package com.ecom.EcommerceSpring.dto;
 
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ProductOfCategoryDTO {
     private String image;
     private String color;
@@ -8,7 +15,7 @@ public class ProductOfCategoryDTO {
     private Boolean onSale;
     private Integer discount;
     private String model;
-    private Integer id;
+    private long id;
     private String title;
     private String category;
     private String brand;
