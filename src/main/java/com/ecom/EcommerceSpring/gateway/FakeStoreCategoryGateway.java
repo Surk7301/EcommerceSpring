@@ -3,6 +3,7 @@ package com.ecom.EcommerceSpring.gateway;
 import com.ecom.EcommerceSpring.dto.CategoryDTO;
 import com.ecom.EcommerceSpring.dto.FakeStoreCategoryResponseDTO;
 import com.ecom.EcommerceSpring.gateway.api.FakeStoreCategoryAPI;
+import com.ecom.EcommerceSpring.mappers.GetAllCategoriesMapper;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -30,10 +31,12 @@ public class FakeStoreCategoryGateway implements ICategoryGateway {
         }
 
 //        3. Map the response to a list of CategoryDTO objects
-        return response.getCategories().stream()
-                .map(category -> CategoryDTO.builder()
-                .name(category).build())
-                .toList();
+//        return response.getCategories().stream()
+//                .map(category -> CategoryDTO.builder()
+//                .name(category).build())
+//                .toList();
+
+        return GetAllCategoriesMapper.toCategoryDto((response));
 
 
     }
