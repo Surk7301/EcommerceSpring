@@ -10,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class product extends BaseEntity {
+public class Product extends BaseEntity {
     private String image;
     private String color;
     private int price;
