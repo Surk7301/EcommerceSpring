@@ -3,18 +3,15 @@ package com.ecom.EcommerceSpring.controllers;
 import com.ecom.EcommerceSpring.dto.ProductDTO;
 import com.ecom.EcommerceSpring.services.IProductService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/products")
 public class productController {
-    private final IProductService productCategoryService;
+    private final IProductService productService;
 
-    productController (IProductService productCategoryService){
-        this.productCategoryService =  productCategoryService;
+    productController (IProductService productService){
+        this.productService =  productService;
     }
 
 //    public List<CategoryDTO>getAllProductsOfCategory() throws IOException {
@@ -23,9 +20,14 @@ public class productController {
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) throws Exception {
-        ProductDTO result = this.productCategoryService.getProductById(id);
+        ProductDTO result = this.productService.getProductById(id);
 
         return ResponseEntity.ok(result);
 
+    }
+
+    @PostMapping
+    public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO dto){
+        return ResponseEntity.ok(productService.createProduct(dto));
     }
 }
