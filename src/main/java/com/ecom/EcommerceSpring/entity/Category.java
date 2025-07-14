@@ -1,20 +1,23 @@
-package com.ecom.EcommerceSpring.dto;
+package com.ecom.EcommerceSpring.entity;
 
+import jakarta.persistence.Entity;
 import lombok.*;
 
-@Getter
+@Entity
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CategoryDTO {
+public class Category extends BaseEntity{
+
     private String image;
     private String color;
     private int price;
     private String description;
     private int discount;
     private String model;
-    //    private Long id;
+    //    private int id;
     private String title;
     private String category;
     private String brand;
