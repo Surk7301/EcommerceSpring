@@ -41,6 +41,10 @@ public class FakeStoreCategoryGateway implements ICategoryGateway {
 
     }
 
+    @Override
+    public CategoryDTO getProductByCategory(String category) throws IOException {
+        return null;
+    }
 
 
 }

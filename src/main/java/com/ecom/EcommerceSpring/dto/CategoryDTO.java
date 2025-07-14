@@ -19,4 +19,5 @@ public class CategoryDTO {
     private String category;
     private String brand;
     private boolean popular;
+    private String name;
 }

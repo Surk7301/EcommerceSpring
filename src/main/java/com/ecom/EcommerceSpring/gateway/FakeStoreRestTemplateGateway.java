@@ -41,4 +41,9 @@ public class FakeStoreRestTemplateGateway implements ICategoryGateway{
 //                .toList();
         return GetAllCategoriesMapper.toCategoryDto(response.getBody());
     }
+
+    @Override
+    public CategoryDTO getProductByCategory(String category) throws IOException {
+        return null;
+    }
 }

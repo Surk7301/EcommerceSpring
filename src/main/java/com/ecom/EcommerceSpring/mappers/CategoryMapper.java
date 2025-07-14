@@ -6,7 +6,7 @@ import com.ecom.EcommerceSpring.entity.Category;
 import com.ecom.EcommerceSpring.entity.Product;
 
 public class CategoryMapper {
-    CategoryDTO toDto(Category category){
+    public static CategoryDTO toDto(Category category){
         return CategoryDTO.builder()
                 .image(category.getImage())
                 .color(category.getColor())
@@ -21,8 +21,8 @@ public class CategoryMapper {
                 .build();
     }
 
-    public static Product toEntity(ProductDTO dto){
-        return Product.builder()
+    public static Category toEntity(CategoryDTO dto){
+        return Category.builder()
                 .image(dto.getImage())
                 .color(dto.getColor())
                 .price(dto.getPrice())

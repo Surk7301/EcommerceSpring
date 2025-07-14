@@ -4,9 +4,11 @@ import com.ecom.EcommerceSpring.dto.ProductDTO;
 import com.ecom.EcommerceSpring.entity.Product;
 import com.ecom.EcommerceSpring.mappers.ProductMapper;
 import com.ecom.EcommerceSpring.repository.ProductRepository;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
+@Primary
 public class ProductService implements IProductService{
 
     private final ProductRepository repo;

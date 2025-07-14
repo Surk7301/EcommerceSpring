@@ -21,12 +21,23 @@ public class CategoryController {
 
         }
 
+        @GetMapping("/{category}")
+    public ResponseEntity<CategoryDTO> getProductByCategory(@PathVariable String category) throws Exception{
+        CategoryDTO result = this.categoryService.getProductByCategory(category);
+        return ResponseEntity.ok(result);
+    }
 
+    @PostMapping
+    public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO dto) {
+        return ResponseEntity.ok(categoryService.createCategory(dto));
+    }
 
     @GetMapping()
     public ResponseEntity <List<CategoryDTO>> getAllCategories() throws IOException{
         List<CategoryDTO> response = this.categoryService.getAllCategories();
     return ResponseEntity.ok(response);
+
+
 
         // below code for customizing API response message
 //        return ResponseEntity.created(null)
