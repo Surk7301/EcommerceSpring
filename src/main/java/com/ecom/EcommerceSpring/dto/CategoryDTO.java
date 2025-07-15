@@ -14,7 +14,7 @@ public class CategoryDTO {
     private String description;
     private int discount;
     private String model;
-    //    private Long id;
+    private Long id;
     private String title;
     private String category;
     private String brand;

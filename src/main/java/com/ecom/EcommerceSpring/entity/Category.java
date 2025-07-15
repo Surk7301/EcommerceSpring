@@ -1,7 +1,10 @@
 package com.ecom.EcommerceSpring.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Setter
@@ -22,4 +25,8 @@ public class Category extends BaseEntity{
     private String category;
     private String brand;
     private boolean popular;
+
+    //One category has many products
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }

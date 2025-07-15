@@ -1,7 +1,7 @@
 package com.ecom.EcommerceSpring.entity;
 
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -19,7 +19,15 @@ public class Product extends BaseEntity {
     private String model;
 //    private int id;
     private String title;
-    private String category;
+//    private String category;
     private String brand;
     private boolean popular;
+
+
+
+    // Each products belongs to one category
+    //One category can have many products
+    @ManyToOne
+    @JoinColumn(name = "categoryId", nullable = false)
+    private Category category;
 }
