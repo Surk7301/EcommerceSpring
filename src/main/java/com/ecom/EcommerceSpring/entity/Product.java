@@ -28,6 +28,6 @@ public class Product extends BaseEntity {
     // Each products belongs to one category
     //One category can have many products
     @ManyToOne
-    @JoinColumn(name = "categoryId", nullable = false)
+    @JoinColumn(nullable = false)
     private Category category;
 }

@@ -1,5 +1,6 @@
 package com.ecom.EcommerceSpring.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.*;
@@ -14,17 +15,13 @@ import java.util.List;
 @Builder
 public class Category extends BaseEntity{
 
-    private String image;
-    private String color;
-    private int price;
-    private String description;
-    private int discount;
-    private String model;
-    //    private int id;
-    private String title;
-    private String category;
-    private String brand;
-    private boolean popular;
+
+
+    @Column(nullable = false, unique = true)
+    private String name;
+
+//    @Column(nullable = false, unique = true)
+//    private Long category_id;
 
     //One category has many products
     @OneToMany(mappedBy = "category")
