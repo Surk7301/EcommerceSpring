@@ -33,9 +33,15 @@ public class CategoryController {
     }
 
     @GetMapping()
-    public ResponseEntity <List<CategoryDTO>> getAllCategories() throws IOException{
-        List<CategoryDTO> response = this.categoryService.getAllCategories();
-    return ResponseEntity.ok(response);
+    public ResponseEntity <?> getAllCategories(@RequestParam(required = false) String name) throws Exception{
+        if(name != null && !name.isBlank()){
+            CategoryDTO categoryDTO = categoryService.getByName(name);
+            return ResponseEntity.ok(categoryDTO);
+        }else{
+            List<CategoryDTO> response = this.categoryService.getAllCategories();
+            return ResponseEntity.ok(response);
+        }
+
 
 
 
