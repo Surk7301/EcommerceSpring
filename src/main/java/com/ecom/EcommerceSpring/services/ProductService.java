@@ -30,9 +30,9 @@ public class ProductService implements IProductService{
 
 
     @Override
-    public ProductDTO createProduct(ProductDTO dto) {
+    public ProductDTO createProduct(ProductDTO dto) throws Exception {
         Category category = categoryRepository.findById(dto.getCategoryId())
-             .orElseThrow(()-> new RuntimeException("Category not found"));
+             .orElseThrow(()-> new Exception("Category not found"));
 
         Product saved = repo.save(ProductMapper.toEntity(dto, category));
         return ProductMapper.toDto(saved);
