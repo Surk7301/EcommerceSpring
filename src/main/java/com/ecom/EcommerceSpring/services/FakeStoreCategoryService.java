@@ -1,6 +1,7 @@
 package com.ecom.EcommerceSpring.services;
 
 import com.ecom.EcommerceSpring.dto.CategoryDTO;
+import com.ecom.EcommerceSpring.dto.ProductWithCategoryDTO;
 import com.ecom.EcommerceSpring.gateway.ICategoryGateway;
 
 import java.io.IOException;
@@ -36,4 +37,6 @@ public class FakeStoreCategoryService implements ICategoryService {
     public CategoryDTO getByName(String name) throws Exception {
         return null;
     }
+
+
 }

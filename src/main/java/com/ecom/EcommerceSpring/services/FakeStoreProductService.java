@@ -1,6 +1,7 @@
 package com.ecom.EcommerceSpring.services;
 
 import com.ecom.EcommerceSpring.dto.ProductDTO;
+import com.ecom.EcommerceSpring.dto.ProductWithCategoryDTO;
 import com.ecom.EcommerceSpring.gateway.IProductGateway;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,10 @@ public class FakeStoreProductService implements IProductService{
 
 
     public ProductDTO createProduct(ProductDTO dto) {
+        return null;
+    }
+
+    public ProductWithCategoryDTO getProductWithCategory(Long id) throws Exception{
         return null;
     }
 }

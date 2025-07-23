@@ -27,7 +27,7 @@ public class Product extends BaseEntity {
 
     // Each products belongs to one category
     //One category can have many products
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
     private Category category;
 }

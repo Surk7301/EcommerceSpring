@@ -7,4 +7,7 @@ import java.util.Optional;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     Optional<Category> findByName(String name);
+
+//    Find items on the basis of price range
+
 }

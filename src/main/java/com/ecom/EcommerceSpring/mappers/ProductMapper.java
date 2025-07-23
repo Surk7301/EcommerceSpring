@@ -1,6 +1,7 @@
 package com.ecom.EcommerceSpring.mappers;
 
 import com.ecom.EcommerceSpring.dto.ProductDTO;
+import com.ecom.EcommerceSpring.dto.ProductWithCategoryDTO;
 import com.ecom.EcommerceSpring.entity.Category;
 import com.ecom.EcommerceSpring.entity.Product;
 
@@ -34,5 +35,23 @@ public class ProductMapper {
                  .brand(dto.getBrand())
                  .popular(dto.isPopular())
                  .build();
+     }
+
+     public static ProductWithCategoryDTO toProductWithCategoryDTO(Product product){
+         return ProductWithCategoryDTO.builder()
+                 .id(product.getId())
+                 .image(product.getImage())
+                 .color(product.getColor())
+                 .price(product.getPrice())
+                 .description(product.getDescription())
+                 .discount(product.getDiscount())
+                 .model(product.getModel())
+                 .title(product.getTitle())
+                 .categoryId(product.getCategory().getId())
+                 .brand(product.getBrand())
+                 .popular(product.isPopular())
+                 .category(CategoryMapper.toDto(product.getCategory()))
+                 .build();
+
      }
 }
