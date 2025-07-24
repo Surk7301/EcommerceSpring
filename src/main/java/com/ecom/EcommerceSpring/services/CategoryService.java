@@ -1,8 +1,11 @@
 package com.ecom.EcommerceSpring.services;
 
+import com.ecom.EcommerceSpring.dto.AllProductsOfCategoryDTO;
 import com.ecom.EcommerceSpring.dto.CategoryDTO;
+import com.ecom.EcommerceSpring.dto.ProductDTO;
 import com.ecom.EcommerceSpring.entity.Category;
 import com.ecom.EcommerceSpring.mappers.CategoryMapper;
+import com.ecom.EcommerceSpring.mappers.ProductMapper;
 import com.ecom.EcommerceSpring.repository.CategoryRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Primary
@@ -50,7 +54,21 @@ public class CategoryService  implements ICategoryService{
         return List.of();
     }
 
+    public AllProductsOfCategoryDTO getAllProductsOfCategory(Long categoryId)throws Exception{
+        Category category = repo.findById(categoryId)
+                .orElseThrow(()-> new Exception("Category not found with categoryId: " + categoryId));
 
+        List<ProductDTO> productDTOs = category.getProducts()
+                .stream()
+                .map(product -> ProductMapper.toDto(product))
+                .collect(Collectors.toList());
+
+        return AllProductsOfCategoryDTO.builder()
+                .categoryId(category.getId())
+                .name(category.getName())
+                .products(productDTOs)
+                .build();
+    }
 
 //    @Override
 //    public List<CategoryDTO> getAllCategories() throws IOException {

@@ -1,5 +1,6 @@
 package com.ecom.EcommerceSpring.services;
 
+import com.ecom.EcommerceSpring.dto.AllProductsOfCategoryDTO;
 import com.ecom.EcommerceSpring.dto.CategoryDTO;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ public interface ICategoryService {
     CategoryDTO createCategory(CategoryDTO dto);
     List<CategoryDTO> getAllCategories() throws IOException;
     CategoryDTO getByName(String name) throws Exception;
+    AllProductsOfCategoryDTO getAllProductsOfCategory(Long categoryId) throws Exception;
 
 
 }

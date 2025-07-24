@@ -1,5 +1,6 @@
 package com.ecom.EcommerceSpring.controllers;
 
+import com.ecom.EcommerceSpring.dto.AllProductsOfCategoryDTO;
 import com.ecom.EcommerceSpring.dto.CategoryDTO;
 import com.ecom.EcommerceSpring.services.ICategoryService;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -42,12 +43,15 @@ public class CategoryController {
             return ResponseEntity.ok(response);
         }
 
-
-
-
         // below code for customizing API response message
 //        return ResponseEntity.created(null)
 //                .body(result);
+    }
+
+    @GetMapping("/{id}/products")
+    public ResponseEntity<AllProductsOfCategoryDTO> getAllProductsOfCategory(@PathVariable Long id) throws Exception{
+        AllProductsOfCategoryDTO dto = categoryService.getAllProductsOfCategory(id);
+        return ResponseEntity.ok(dto);
     }
 
 

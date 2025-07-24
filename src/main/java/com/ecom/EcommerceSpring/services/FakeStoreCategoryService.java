@@ -1,5 +1,6 @@
 package com.ecom.EcommerceSpring.services;
 
+import com.ecom.EcommerceSpring.dto.AllProductsOfCategoryDTO;
 import com.ecom.EcommerceSpring.dto.CategoryDTO;
 import com.ecom.EcommerceSpring.dto.ProductWithCategoryDTO;
 import com.ecom.EcommerceSpring.gateway.ICategoryGateway;
@@ -35,6 +36,11 @@ public class FakeStoreCategoryService implements ICategoryService {
 
     @Override
     public CategoryDTO getByName(String name) throws Exception {
+        return null;
+    }
+
+    @Override
+    public AllProductsOfCategoryDTO getAllProductsOfCategory(Long categoryId) throws Exception {
         return null;
     }
 
