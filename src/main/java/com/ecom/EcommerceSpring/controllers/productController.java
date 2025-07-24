@@ -3,6 +3,7 @@ package com.ecom.EcommerceSpring.controllers;
 import com.ecom.EcommerceSpring.dto.ProductDTO;
 import com.ecom.EcommerceSpring.dto.ProductWithCategoryDTO;
 import com.ecom.EcommerceSpring.services.IProductService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,10 +21,15 @@ public class productController {
 //    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) throws Exception {
-        ProductDTO result = this.productService.getProductById(id);
+    public ResponseEntity<?> getProductById(@PathVariable Long id) throws Exception {
+        try{
+            ProductDTO result = this.productService.getProductById(id);
 
-        return ResponseEntity.ok(result);
+            return ResponseEntity.ok(result);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found");
+        }
+
 
     }
 
