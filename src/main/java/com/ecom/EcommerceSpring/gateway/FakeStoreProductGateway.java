@@ -18,14 +18,14 @@ public class FakeStoreProductGateway implements IProductGateway{
         this.fakeStoreProductAPI = fakeStoreProductAPI;
     }
 
-    public ProductDTO getProductById(Long id) throws Exception {
-        FakeStoreProductsResponseDTO response = this.fakeStoreProductAPI.getFakeProduct(id).execute().body();
-
-        if (response == null) {
-            throw new Exception("Product not found");
-        }
-        return  response.getProduct();
-
+    public ProductDTO getProductById(Long id)  {
+//        FakeStoreProductsResponseDTO response = this.fakeStoreProductAPI.getFakeProduct(id).execute().body();
+//
+//        if (response == null) {
+//            throw new Exception("Product not found");
+//        }
+//        return  response.getProduct();
+          return null;
 
 
     }

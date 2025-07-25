@@ -22,7 +22,7 @@ public class productController {
 //    }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) {
 
         ProductDTO result = this.productService.getProductById(id);
 
@@ -41,8 +41,5 @@ public class productController {
         return ResponseEntity.ok(dto);
     }
 
-    @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<String> handleProductNotFound(ProductNotFoundException ex){
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
-    }
+
 }

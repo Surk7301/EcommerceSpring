@@ -23,7 +23,7 @@ public class ProductService implements IProductService{
         this.categoryRepository = categoryRepository;
     }
 
-    public ProductDTO getProductById(Long id) throws Exception{
+    public ProductDTO getProductById(Long id) {
         return repo.findById(id)
                 .map(ProductMapper::toDto)
                 .orElseThrow(() -> new ProductNotFoundException("Product with ID " + id + " not found"));
